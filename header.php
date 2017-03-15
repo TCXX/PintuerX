@@ -24,17 +24,17 @@ require_once View::getView('module');
 		<title><?php echo $site_title; ?></title>
 		
 		<link rel="stylesheet" href="http://www.pintuer.com/css/pintuer.css">
-		<link href="http://www.pintuer.com/css/style.css" rel="stylesheet">
+		<link href="<?php echo TEMPLATE_URL; ?>style.css" rel="stylesheet">
 		<link href="<?php echo TEMPLATE_URL; ?>main.css" rel="stylesheet">
 		<link href="<?php echo BLOG_URL; ?>admin/editor/plugins/code/prettify.css" rel="stylesheet" type="text/css" />			
 		<link rel="EditURI" type="application/rsd+xml" title="RSD" href="<?php echo BLOG_URL; ?>xmlrpc.php?rsd" />
 		<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="<?php echo BLOG_URL; ?>wlwmanifest.xml" />
 		<link rel="alternate" type="application/rss+xml" title="RSS" href="<?php echo BLOG_URL; ?>rss.php" />
 
-		<script src="http://www.pintuer.com/js/jquery.js"></script>
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 		<script src="http://www.pintuer.com/js/pintuer.js"></script>
-		<script src="http://www.pintuer.com/plugins/respond.js"></script>
-		<script src="http://www.pintuer.com/plugins/layer/layer.js"></script>
+		<!--<script src="http://www.pintuer.com/plugins/respond.js"></script>
+		<script src="http://www.pintuer.com/plugins/layer/layer.js"></script>-->
 		<script src="<?php echo BLOG_URL; ?>admin/editor/plugins/code/prettify.js" type="text/javascript"></script>
 		<script src="<?php echo BLOG_URL; ?>include/lib/js/common_tpl.js" type="text/javascript"></script>
 		<!--[if IE 6]>
