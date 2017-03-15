@@ -4,15 +4,17 @@
  */
 if(!defined('EMLOG_ROOT')) {exit('error!');} 
 ?>
+
 <?php
 //widget：搜索
 function widget_search($title){ ?>
 	<div id="logsearch" class="input-group padding-little-top" title="<?php echo $title; ?>">
 		<form name="keyform" method="get" action="<?php echo BLOG_URL; ?>index.php">
-			<input type="text" class="input border-main search float-left" name="keyword" size="30" placeholder="关键词" style="width:200px;" /><span class="addbtn"><button type="submit" class="button bg-main icon-search"></button></span>
+			<input type="text" class="input border-main search float-left" name="keyword" size="30" placeholder="关键词" style="width:200px;" />
+			<span class="addbtn"><button type="submit" class="button bg-main icon-search"></button></span>
 		</form>
 	</div>
-	<br />
+	<br>
 <?php } ?>
 <?php
 //widget：blogger
@@ -20,19 +22,9 @@ function widget_blogger($title){
 	global $CACHE;
 	$user_cache = $CACHE->readCache('user');
 	$name = $user_cache[1]['mail'] != '' ? "<a href=\"mailto:".$user_cache[1]['mail']."\">".$user_cache[1]['name']."</a>" : $user_cache[1]['name'];?>
-	<div class="tab tab-small">
-		<div class="tab-head">
-			<ul class="tab-nav">
-				<li class="active">
-					<a href="#tab-personal"><?php echo $title; ?></a>
-				</li>
-				<li>
-					<a href="#tab-calendar">日历</a>
-				</li>
-			</ul>
-		</div>
-		<div class="tab-body tab-body-bordered">
-			<div class="tab-panel active" id="tab-personal">
+	<div class="panel">
+		<div class="panel-head"><?php echo $title; ?></div>
+		<div class="panel-body panel-body-bordered">
 				<div class="media media-y">
 					<?php if (!empty($user_cache[1]['photo']['src'])): ?>
 					<img src="<?php echo BLOG_URL.$user_cache[1]['photo']['src']; ?>" width="128" height="128" class="radius" alt="blogger">
@@ -44,7 +36,9 @@ function widget_blogger($title){
 					</p>
 					</div>
 				</div>
-			</div>
+		</div>
+</div>
+<br>
 <?php }?>
 <?php
 //widget：日历
@@ -56,9 +50,7 @@ function widget_calendar($title){ ?>
 			</div>
 		</div>
 	</div>
-	</div>
-	</div>
-	<br />
+	<br>
 <?php }?>
 <?php
 //widget：热门文章
@@ -66,28 +58,17 @@ function widget_hotlog($title){
 	$index_hotlognum = Option::get('index_hotlognum');
 	$Log_Model = new Log_Model();
 	$randLogs = $Log_Model->getHotLog($index_hotlognum);?>
-	<div class="tab tab-small">
-		<div class="tab-head">
-			<ul class="tab-nav">
-				<li class="active">
-					<a href="#tab-hot">热门</a>
-				</li>
-				<li>
-					<a href="#tab-new">最新</a>
-				</li>
-				<li>
-					<a href="#tab-random">随机</a>
-				</li>
-			</ul>
-		</div>
-		<div class="tab-body tab-body-bordered">
-			<div class="tab-panel text-small active" id="tab-hot">
-				<ul class="sidenav nav spy" data-offset-fixed="320" data-offset-spy="160">
+	<div class="panel">
+		<div class="panel-head"><?php echo $title; ?></div>
+			<div class="tab-panel active" id="tab-hot">
+				<ul class="list-link radius-none">
 				<?php foreach($randLogs as $value): ?>
 				<li><a href="<?php echo Url::log($value['gid']); ?>"><?php echo $value['title']; ?></a></li>
 				<?php endforeach; ?>
 				</ul>
 			</div>
+		</div>
+<br>
 <?php }?>
 <?php
 //widget：最新文章
@@ -95,13 +76,15 @@ function widget_newlog($title){
 	global $CACHE; 
 	$newLogs_cache = $CACHE->readCache('newlog');
 	?>
-	<div class="tab-panel text-small" id="tab-new">
-		<ul class="sidenav nav spy" data-offset-fixed="320" data-offset-spy="160">
+	<div class="panel">
+		<div class="panel-head"><?php echo $title; ?></div>
+		<ul class="list-link radius-none">
 		<?php foreach($newLogs_cache as $value): ?>
 		<li><a href="<?php echo Url::log($value['gid']); ?>"><?php echo $value['title']; ?></a></li>
 		<?php endforeach; ?>
 		</ul>
 	</div>
+	<br>
 <?php }?>
 <?php
 //widget：随机文章
@@ -109,46 +92,29 @@ function widget_random_log($title){
 	$index_randlognum = Option::get('index_randlognum');
 	$Log_Model = new Log_Model();
 	$randLogs = $Log_Model->getRandLog($index_randlognum);?>
-	<div class="tab-panel text-small" id="tab-random">
-		<ul class="sidenav nav spy" data-offset-fixed="320" data-offset-spy="160">
+	<div class="panel">
+		<div class="panel-head"><?php echo $title; ?></div>
+		<ul class="list-link radius-none">
 		<?php foreach($randLogs as $value): ?>
 			<li><a href="<?php echo Url::log($value['gid']); ?>"><?php echo $value['title']; ?></a></li>
 		<?php endforeach; ?>
 		</ul>
 	</div>
-	</div>
-	</div>
-	<br />
+	<br>
 <?php }?>	
 <?php
 //widget：分类
 function widget_sort($title){
 	global $CACHE;
 	$sort_cache = $CACHE->readCache('sort'); ?>
-	<div class="tab tab-small">
-		<div class="tab-head">
-			<ul class="tab-nav">
-				<li class="active">
-					<a href="#tab-class">分类</a>
-				</li>
-				<li>
-					<a href="#tab-archives">存档</a>
-				</li>
-				<li>
-					<a href="#tab-tag">标签</a>
-				</li>
-			</ul>
-		</div>
-		<div class="tab-body tab-body-bordered">
-			<div class="tab-panel text-small active" id="tab-class">
-				<ul class="sidenav nav spy" data-offset-fixed="320" data-offset-spy="160">
-					<li>
+	<div class="panel">
+		<div class="panel-head"><?php echo $title; ?></div>
+				<ul class="list-link radius-none">
 						<?php
 						foreach($sort_cache as $value):
 							if ($value['pid'] != 0) continue;
 						?>
-						<li>
-						<a href="<?php echo Url::sort($value['sid']); ?>"><?php echo $value['sortname']; ?>(<?php echo $value['lognum'] ?>)</a>
+						<li><a href="<?php echo Url::sort($value['sid']); ?>"><?php echo $value['sortname']; ?>(<?php echo $value['lognum'] ?>)</a>
 						<?php if (!empty($value['children'])): ?>
 							<ul>
 							<?php
@@ -164,9 +130,9 @@ function widget_sort($title){
 						<?php endif; ?>
 						</li>
 						<?php endforeach; ?>
-					</li>
     			</ul>
-			</div>	
+		</div>
+<br>
 <?php }?>
 <?php
 //widget：归档
@@ -174,20 +140,24 @@ function widget_archive($title){
 	global $CACHE; 
 	$record_cache = $CACHE->readCache('record');
 	?>
-	<div class="tab-panel text-small padding" id="tab-archives">
-		<ol>
+	<div class="panel">
+		<div class="panel-head"><?php echo $title; ?></div>
+			<ul class="list-link radius-none">
 			<?php foreach($record_cache as $value): ?>
 			<li><a href="<?php echo Url::record($value['date']); ?>"><?php echo $value['record']; ?>(<?php echo $value['lognum']; ?>)</a></li>
 			<?php endforeach; ?>
-		</ol>
+		</ul>
 	</div>
+		<br>
 <?php } ?>
 <?php
 //widget：标签
 function widget_tag($title){
 	global $CACHE;
 	$tag_cache = $CACHE->readCache('tags');?>
-	<div class="tab-panel text-small padding" id="tab-tag">
+	<div class="panel">
+		<div class="panel-head"><?php echo $title; ?></div>
+		<div class="panel-body panel-body-bordered">
 	<?php foreach($tag_cache as $value): ?>
 		<span class="
 			<?php 
@@ -201,8 +171,7 @@ function widget_tag($title){
 	<?php endforeach; ?>
 	</div>
 	</div>
-	</div>
-	<br />
+	<br>
 <?php }?>
 <?php
 //widget：最新微语
@@ -211,26 +180,18 @@ function widget_twitter($title){
 	$newtws_cache = $CACHE->readCache('newtw');
 	$istwitter = Option::get('istwitter');
 	?>
-	<div class="tab tab-small">
-		<div class="tab-head">
-			<ul class="tab-nav">
-				<li >
-					<a href="#tab-talk"><?php echo $title; ?></a>
-				</li>
-				<li class="active">
-					<a href="#tab-comments">最新评论</a>
-				</li>
-			</ul>
-		</div>
-		<div class="tab-body tab-body-bordered">
-		<div class="tab-panel text-small" id="tab-talk">
-			<ul class="sidenav nav spy" data-offset-fixed="320" data-offset-spy="160">
+	<div class="panel">
+		<div class="panel-head"><?php echo $title; ?></div>
+		<div class="panel-body panel-body-bordered">
+			<ul>
 				<?php foreach($newtws_cache as $value): ?>
 				<?php $img = empty($value['img']) ? "" : '<a title="查看图片" class="t_img" href="'.BLOG_URL.str_replace('thum-', '', $value['img']).'" target="_blank">&nbsp;</a>';?>
 				<li><a class="cuttitle"><?php echo $value['t']; ?></a></li>
 				<?php endforeach; ?>
 			</ul>
 		</div>
+	</div>
+	<br>
 <?php }?>
 <?php
 //widget：最新评论
@@ -238,8 +199,10 @@ function widget_newcomm($title){
 	global $CACHE; 
 	$com_cache = $CACHE->readCache('comment');
 	?>
-	<div class="tab-panel text-small active" id="tab-comments">
-			<ul class="sidenav nav spy" data-offset-fixed="320" data-offset-spy="160">
+	<div class="panel">
+		<div class="panel-head"><?php echo $title; ?></div>
+		<div class="panel-body panel-body-bordered">
+			<ul>
 			<?php
 			foreach($com_cache as $value):
 			$url = Url::comment($value['gid'], $value['page'], $value['cid']);
@@ -250,24 +213,17 @@ function widget_newcomm($title){
 			</ul>
 	</div>
 	</div>
-	</div>
 	<br>
 <?php }?>
 <?php
 //widget：自定义组件
 function widget_custom_text($title, $content){ ?>
-	<div class="tab tab-small">
-		<div class="tab-head">
-			<ul class="tab-nav">
-				<li class="active">
-					<a href="#tab-<?php echo $title; ?>"><?php echo $title; ?></a>
-				</li>
-			</ul>
-		</div>
-		<div class="tab-body tab-body-bordered">
-		<div class="tab-panel text-small active" id="tab-<?php echo $title; ?>">
-			<?php echo $content; ?>
-		</div>
+	<div class="panel">
+		<div class="panel-head"><?php echo $title; ?></div>
+		<div class="panel-body panel-body-bordered">
+			<div class="panel-panel active" id="panel-<?php echo $title; ?>">
+				<?php echo $content; ?>
+			</div>
 		</div>
 	</div>
 	<br>
@@ -277,26 +233,17 @@ function widget_custom_text($title, $content){ ?>
 function widget_link($title){
 	global $CACHE; 
 	$link_cache = $CACHE->readCache('link');
-    //if (!blog_tool_ishome()) return;#只在首页显示友链去掉双斜杠注释即可
+	//if (!blog_tool_ishome()) return;#只在首页显示友链去掉双斜杠注释即可
 	?>
-	<div class="tab tab-small">
-		<div class="tab-head">
-			<ul class="tab-nav">
-				<li class="active">
-					<a href="#tab-link">友情链接</a>
-				</li>
+	<div class="panel">
+		<div class="panel-head"><?php echo $title; ?></div>
+			<ul class="list-link radius-none">
+				<?php foreach($link_cache as $value): ?>
+				<li><a href="<?php echo $value['url']; ?>" title="<?php echo $value['des']; ?>" target="_blank"><?php echo $value['link']; ?></a></li>
+				<?php endforeach; ?>
 			</ul>
-		</div>
-		<div class="tab-body tab-body-bordered">
-			<div class="tab-panel text-small active" id="tab-link">
-				<ol>
-					<?php foreach($link_cache as $value): ?>
-					<li><a href="<?php echo $value['url']; ?>" title="<?php echo $value['des']; ?>" target="_blank"><?php echo $value['link']; ?></a></li>
-					<?php endforeach; ?>
-				</ol>
-			</div>
-		</div>
 	</div>
+<br>
 <?php }?> 
 <?php
 //blog：导航
@@ -432,7 +379,7 @@ function blog_comments($comments){
 		<div class="comment-info">
 			<b><?php echo $comment['poster']; ?> </b><span class="comment-time"><?php echo $comment['date']; ?></span>
 			<div class="comment-content text-small padding-small-top height-small"><?php echo $comment['content']; ?></div>
-			<div class="comment-reply text-small padding-small-top height-small"><a class="tag bg-main" href="#comment-<?php echo $comment['cid']; ?>" onclick="commentReply(<?php echo $comment['cid']; ?>,this)">回复</a></div>
+			<div class="comment-reply text-small padding-small-top height-small"><a class="tag bg-white" href="#comment-<?php echo $comment['cid']; ?>" onclick="commentReply(<?php echo $comment['cid']; ?>,this)">回复</a></div>
 		</div>
 		<?php blog_comments_children($comments, $comment['children']); ?>
 	</div>
@@ -449,12 +396,12 @@ function blog_comments_children($comments, $children){
 	$comment = $comments[$child];
 	$comment['poster'] = $comment['url'] ? '<a href="'.$comment['url'].'" target="_blank">'.$comment['poster'].'</a>' : $comment['poster'];
 	?>
-	<div class="comment comment-children panel-body border text-small margin-top" id="comment-<?php echo $comment['cid']; ?>">
+	<div class="comment comment-children panel-body border text-small margin-top radius" id="comment-<?php echo $comment['cid']; ?>">
 		<a name="<?php echo $comment['cid']; ?>"></a>
 		<div class="comment-info">
 			<b><?php echo $comment['poster']; ?> </b><span class="comment-time"><?php echo $comment['date']; ?></span>
 			<div class="comment-content text-small padding-small-top height-small"><?php echo $comment['content']; ?></div>
-			<?php if($comment['level'] < 4): ?><div class="comment-reply"><a class="tag bg-main" href="#comment-<?php echo $comment['cid']; ?>" onclick="commentReply(<?php echo $comment['cid']; ?>,this)">回复</a></div><?php endif; ?>
+			<?php if($comment['level'] < 3): ?><div class="comment-reply"><a class="tag bg-white" href="#comment-<?php echo $comment['cid']; ?>" onclick="commentReply(<?php echo $comment['cid']; ?>,this)">回复</a></div><?php endif; ?>
 		</div>
 		<?php blog_comments_children($comments, $comment['children']);?>
 	</div>
@@ -466,9 +413,8 @@ function blog_comments_post($logid,$ckname,$ckmail,$ckurl,$verifyCode,$allow_rem
 	if($allow_remark == 'y'): ?>
 	<div id="comment-place">
 	<div class="comment-post" id="comment-post">
-		<div class="cancel-reply" id="cancel-reply" style="display:none"><a href="javascript:void(0);" onclick="cancelReply()">取消回复</a></div>
-		<strong class="text-green comment-header">发表评论：<a name="respond"></a></strong>
-		<hr />
+		<div class="cancel-reply tag bg-white" id="cancel-reply" style="display:none"><a href="javascript:void(0);" onclick="cancelReply()">取消回复</a></div>
+		<strong class="comment-header">发表评论：<a name="respond"></a></strong>
 		<form method="post" name="commentform" action="<?php echo BLOG_URL; ?>index.php?action=addcom" id="commentform">
 			<input type="hidden" name="gid" value="<?php echo $logid; ?>" />
 			<?php if(ROLE == ROLE_VISITOR): ?>
@@ -506,3 +452,4 @@ function blog_tool_ishome(){
     }
 }
 ?>
+
