@@ -30,7 +30,7 @@
 	position:relative;
 	top: 5px;
 	background: #ffffff;
-	opacity: 0.75;
+	opacity: 0.9;
 	border-width: 1px;
 	border-color: #08104f;
 	border-style: solid;
@@ -390,8 +390,11 @@ body {
 	padding: 0px;
 	
 	/*Xin*/
-	background-image: url(images/yellow.jpg);
-	background-repeat: repeat-y repeat-x;
+	background-color:#fffcc6;
+	background-image: radial-gradient(white 15%, transparent 10%),
+	radial-gradient(white 15%, transparent 10%);
+	background-size:60px 60px;
+	background-position: 0 0, 30px 30px;
 }
 
 #wrap {
@@ -1177,3 +1180,4 @@ a img.aligncenter {
 	padding: 0 7px;
 	margin: 0 0 0 10px;
 }
+
