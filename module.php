@@ -343,9 +343,9 @@ function blog_navi(){
 //blog：置顶
 function topflg($top, $sortop='n', $sortid=null){
     if(blog_tool_ishome()) {
-       echo $top == 'y' ? "<span class='icon-eject bg-yellow'></span>" : '';
+       echo $top == 'y' ? "<span class='icon-thumb-tack'></span>" : '';
     } elseif($sortid){
-       echo $sortop == 'y' ? "<span class='icon-caret-up bg-blue'></span>" : '';
+       echo $sortop == 'y' ? "<span class='icon-thumb-tack'></span>" : '';
     }
 }
 ?>
@@ -362,10 +362,12 @@ function blog_sort($blogid){
 	global $CACHE; 
 	$log_cache_sort = $CACHE->readCache('logsort');
 	?>
-	<?php if(!empty($log_cache_sort[$blogid])): ?>
+	<?php if(!empty($log_cache_sort[$blogid])){ ?>
     <a href="<?php echo Url::sort($log_cache_sort[$blogid]['id']); ?>"><?php echo $log_cache_sort[$blogid]['name']; ?></a>			
-	<?php endif;?>
-<?php }?>
+	<?php } else { ?>
+	<span>无分类</span>
+<?php }}?>
+
 <?php
 //blog：文章标签
 function blog_tag($blogid){
@@ -377,6 +379,8 @@ function blog_tag($blogid){
 			$tag .= "	<a href=\"".Url::tag($value['tagurl'])."\">".$value['tagname'].'</a>';
 		}
 		echo $tag;
+	} else {
+		echo '无标签';
 	}
 }
 ?>
@@ -498,5 +502,6 @@ function blog_tool_ishome(){
     }
 }
 ?>
+
 
 

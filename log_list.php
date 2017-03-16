@@ -38,7 +38,11 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
 		if (!empty($logs)):
 		foreach($logs as $value): 
 		?>
-			<h3 class="article-title padding-small-top"><?php topflg($value['top'], $value['sortop'], isset($sortid)?$sortid:''); ?><a href="<?php echo $value['log_url']; ?>"><?php echo $value['log_title']; ?></a></h3>
+			<h3 class="article-title padding-small-top">
+				<a href="<?php echo $value['log_url']; ?>"><?php echo $value['log_title']; ?></a>
+			
+				<div class="float-right"><?php topflg($value['top'], $value['sortop'], isset($sortid)?$sortid:''); ?></div>
+			</h3>
 			<br>
 			<?php 
 			$search_pattern = '%<img[^>]*?src=[\'\"]((?:(?!\/admin\/|>).)+?)[\'\"][^>]*?>%s';
