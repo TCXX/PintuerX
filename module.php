@@ -26,12 +26,12 @@ function img_fj($logid){
 }?>
 
 <?php //幻灯片(调用分类置顶)
-function home_flash($title){?>
+function home_flash($title, $size){?>
 	<div class="panel">
 	<div class="panel-head"><?php echo $title; ?></div>
 	<?php $db = MySql::getInstance();
-	$sql =$db->query ("SELECT * FROM ".DB_PREFIX."blog inner join ".DB_PREFIX."sort WHERE hide='n' AND type='blog' AND sortop='y' AND sortid=sid order by date DESC limit 0,6");?>
-	<div class="banner" data-pointer="1" data-interval="6" data-item="2" data-small="2" data-middle="3" data-big="3">
+	$sql =$db->query ("SELECT * FROM ".DB_PREFIX."blog inner join ".DB_PREFIX."sort WHERE hide='n' AND type='blog' AND sortop='y' AND sortid=sid order by date DESC limit 0,5");?>
+	<div class="banner" data-pointer="1" data-interval="6" data-item="1" data-small="1" data-middle="<?php echo $size?>" data-big="<?php echo $size?>">
 		<div class="carousel">
 		<?php while($value = $db->fetch_array($sql)){
 		$img_url = TEMPLATE_URL.'images/flash/'.rand(1,5).'.jpg';

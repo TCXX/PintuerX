@@ -168,7 +168,7 @@ a:hover {
 
 .doc-sidebar {
     display: block;
-    margin: 20px 0px 20px 50px;
+    margin: 20px 0px 20px 20px;
 }
 
 .doc-right {
@@ -301,7 +301,7 @@ xmp, pre, plaintext {
 }
 
 .doc-backtop:hover {
-    color: #0a8;
+    color: #3b4066;
 }
 
 .doc-icons {

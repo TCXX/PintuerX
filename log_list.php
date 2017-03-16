@@ -11,7 +11,7 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
 		<div class="doc-right">
 		<?php doAction('index_loglist_top'); ?>
 			
-		<?php if (blog_tool_ishome()){ home_flash('Works');} ?>	'
+		<?php if (blog_tool_ishome()){ home_flash('Works', 3);} ?>	
 		
 		<div class="panel">
 			<div class="panel-head">

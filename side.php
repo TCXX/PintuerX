@@ -16,6 +16,9 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
 <?php 
 $widgets = !empty($options_cache['widgets1']) ? unserialize($options_cache['widgets1']) : array();
 doAction('diff_side');
+
+if (!blog_tool_ishome()){ home_flash('Works', 1);} 	
+
 foreach ($widgets as $val)
 {
 	$widget_title = @unserialize($options_cache['widget_title']);
