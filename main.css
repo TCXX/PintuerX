@@ -1,5 +1,10 @@
 ﻿/*Xin*/
 
+.body {
+	background-image: url(/images/yellow.jpg);
+	background-repeat: repeat-y repeat-x;
+}
+
 .article-div {
 	height: 150px;
 }
