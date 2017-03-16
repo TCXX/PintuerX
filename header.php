@@ -50,11 +50,10 @@ require_once View::getView('module');
 		.popo .popo-body.left {width: 100%;max-width: 100%;}
 		.input-group {border-collapse: separate;display: block;position: relative;}
 		.cuttitle{ display: block; width: 220px; height:24px; overflow:  hidden; white-space: nowrap; -o-text-overflow: ellipsis; text-overflow:  ellipsis; }
-		.hr {height: 2px;border-bottom: 1px dashed #dedede;padding-top: 5px;padding-bottom: 5px;}
 		</style>
 		<script type="text/javascript">
 			$(window).scroll(function(){
-			if($(this).scrollTop()>170){
+			if($(this).scrollTop()>200){
 			$('#txw-nav').addClass('topfixed');
 			} else {
 			$('#txw-nav').removeClass('topfixed');
@@ -73,7 +72,6 @@ require_once View::getView('module');
 		<?php doAction('index_head'); ?>
 	</head>
 	<body>
-		<div>
 		<div class="doc-header">
 			<div class="hidden-s hidden-m hidden-b show-l">
 				<div class="box-shadow-small" id="txw-bg-small"></div>
@@ -86,17 +84,19 @@ require_once View::getView('module');
 			</div>
 			<div class="bg-main doc-intro show-s show-m show-b hidden-l" id="txw-bg-main">
 				<div class="container">
-					<h1>
-                    <?php echo $blogname; ?>
-                	</h1>
-					<p><?php echo $bloginfo; ?></p>
+					<div class="float-left" id="txw-bg-img">
+						<img src="<?php echo TEMPLATE_URL; ?>images/QXin.png">
+					</div>
+					<div id="txw-bg-title">
+						<h1><?php echo $blogname; ?></h1>
+						<p><?php echo $bloginfo; ?></p>
+					</div>
 				</div>
 			</div>
-			<div class="bg-inverse">
-				<ul class="fixable nav nav-navicon padding-small-top box-shadow-small nav-inline" id="txw-nav">
+				<div class="bg-inverse">
+					<ul class="fixable nav nav-navicon padding-small-top box-shadow-small nav-inline" id="txw-nav">
 			  		<?php blog_navi($blogname);?>
 				</ul>
 			</div>
-		</div>
 		</div>
 		

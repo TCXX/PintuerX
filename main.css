@@ -58,8 +58,23 @@
 	position:fixed;
 }
 
+#txw-bg-title {
+	position: relative;
+	top: 40px;
+}
+
+#txw-bg-title h1{
+	position: relative;
+	left: 30px;
+}
+
+#txw-bg-title p {
+	position: relative;
+	left: 60px;
+}
+
 #txw-bg-main {
-	background: #58abd8;
+	background-color: #58abd8;
 }
 
 #txw-bg-small {
@@ -268,7 +283,7 @@ xmp, pre, plaintext {
 }
 
 .doc-intro {
-    padding: 40px 0;
+    padding: 10px 0;
 }
 
 .doc-intro h1 {
