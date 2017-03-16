@@ -1,9 +1,4 @@
-﻿/*Xin*/
-
-.body {
-	background-image: url(/images/yellow.jpg);
-	background-repeat: repeat-y repeat-x;
-}
+/*Xin*/
 
 .article-div {
 	height: 150px;
@@ -393,6 +388,10 @@ body {
 	font-size: 14px;
 	margin: 0px auto 0px;
 	padding: 0px;
+	
+	/*Xin*/
+	background-image: url(images/yellow.jpg);
+	background-repeat: repeat-y repeat-x;
 }
 
 #wrap {
