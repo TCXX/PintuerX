@@ -10,6 +10,9 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
 		<!--list.start-->
 		<div class="doc-right">
 		<?php doAction('index_loglist_top'); ?>
+			
+		<?php if (blog_tool_ishome()){ home_flash('Works');} ?>	'
+		
 		<div class="panel">
 			<div class="panel-head">
 			<?php

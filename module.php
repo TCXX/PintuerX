@@ -6,6 +6,52 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
 ?>
 
 <?php
+//全局匹配正文中的图片并存入imgsrc中
+function img_zw($content){
+	preg_match_all("|<img[^>]+src=\"([^>\"]+)\"?[^>]*>|is", $content, $img);
+	$imgsrc = !empty($img[1]) ? $img[1][0] : '';
+	if($imgsrc):return $imgsrc;endif;
+}
+
+//Custom: 获取附件第一张图片
+function img_fj($logid){
+	$db = MySql::getInstance();
+	$sql = "SELECT * FROM ".DB_PREFIX."attachment WHERE blogid=".$logid." AND (`filepath` LIKE '%jpg' OR `filepath` LIKE '%gif' OR `filepath` LIKE '%png') ORDER BY `aid` ASC LIMIT 0,1";
+	$imgs = $db->query($sql);
+	$img_path = "";
+	while($row = $db->fetch_array($imgs)){
+		$img_path .= BLOG_URL.substr($row['filepath'],3,strlen($row['filepath']));
+	}
+	return $img_path;
+}?>
+
+<?php //幻灯片(调用分类置顶)
+function home_flash($title){?>
+	<div class="panel">
+	<div class="panel-head"><?php echo $title; ?></div>
+	<?php $db = MySql::getInstance();
+	$sql =$db->query ("SELECT * FROM ".DB_PREFIX."blog inner join ".DB_PREFIX."sort WHERE hide='n' AND type='blog' AND sortop='y' AND sortid=sid order by date DESC limit 0,6");?>
+	<div class="banner" data-pointer="1" data-interval="6" data-item="2" data-small="2" data-middle="3" data-big="3">
+		<div class="carousel">
+		<?php while($value = $db->fetch_array($sql)){
+		$img_url = TEMPLATE_URL.'images/flash/'.rand(1,5).'.jpg';
+		
+		if(img_fj($value['gid'])){
+			$img_url = img_fj($value['gid']);
+		}elseif(img_zw($value['content'])){
+			$img_url = img_zw($value['content']);
+		}else{
+			$img_url;
+		}?>
+			
+		<div class="item">
+			<a href="<?php echo Url::log($value['gid']);?>" title="<?php echo $value['title'];?>">
+			<img src="<?php echo $img_url;?>" alt="<?php echo $value['title'];?>"/>
+			</a></div><?php }?>
+		</div></div></div><br>
+<?php }?>
+
+<?php
 //widget：搜索
 function widget_search($title){ ?>
 	<div id="logsearch" class="input-group padding-little-top" title="<?php echo $title; ?>">
@@ -452,4 +498,5 @@ function blog_tool_ishome(){
     }
 }
 ?>
+
 
