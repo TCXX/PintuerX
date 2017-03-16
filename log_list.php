@@ -38,11 +38,11 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
 		if (!empty($logs)):
 		foreach($logs as $value): 
 		?>
-			<h3 class="article-title padding-small-top">
-				<a href="<?php echo $value['log_url']; ?>"><?php echo $value['log_title']; ?></a>
+			<h3 class="padding-small-top">
+				<a class="article-title" href="<?php echo $value['log_url']; ?>"><?php echo $value['log_title']; ?></a>
 			
 				<div class="float-right"><?php topflg($value['top'], $value['sortop'], isset($sortid)?$sortid:''); ?></div>
-			</h3>
+				</h3>
 			<br>
 			<?php 
 			$search_pattern = '%<img[^>]*?src=[\'\"]((?:(?!\/admin\/|>).)+?)[\'\"][^>]*?>%s';
@@ -55,16 +55,17 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
 				<?php } ?>
 			<div class="article-text">
 				<?php
-				echo subString(strip_tags($value['log_description']),0,250,"……");
-				?>
+				$content = preg_replace('/\<p class=\"readmore\"\>(.*)\<\/p\>/i','',$value['log_description']);
+                echo subString(strip_tags($content),0,250,"……");
+                ?>
 			</div>
 			</div>
 			<div class="padding-small-top">
-				<span class="float-left">
+				<span class="article-info float-left">
 					<?php echo gmdate('Y-n-j', $value['date']); ?> 
 						<?php editflg($value['logid'],$value['author']); ?>
 				</span>
-				<small class="float-right text-small">评论(<?php echo $value['comnum']; ?>) | 浏览(<?php echo $value['views']; ?>)</small>
+				<small class="article-info float-right text-small">评论(<?php echo $value['comnum']; ?>) | 浏览(<?php echo $value['views']; ?>)</small>
 			</div>
 			<br>
 			<hr class="article-hr">

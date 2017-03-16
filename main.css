@@ -8,9 +8,14 @@
 	height: 100px;
 }
 
+.article-title{
+	color: #d345a2!important;
+}
+
 .article-text {
 	width: auto;
 	position: relative;
+	color: #565656;
 }
 
 .article-pic img {
@@ -18,6 +23,10 @@
 	width: 165px;
 	height: 120px;
 	margin: 5px;
+}
+
+.article-info {
+	color: #898989;
 }
 
 .article-hr {
@@ -180,7 +189,7 @@
 }
 
 a {
-	color: #d345a2!important;
+	color: #58abd8!important;
 	text-decoration: none;
 }
 
@@ -1216,6 +1225,7 @@ a img.aligncenter {
 	padding: 0 7px;
 	margin: 0 0 0 10px;
 }
+
 
 
 

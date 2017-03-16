@@ -53,7 +53,7 @@ require_once View::getView('module');
 		</style>
 		<script type="text/javascript">
 			$(window).scroll(function(){
-			if($(this).scrollTop()>200){
+			if($(this).scrollTop()>220){
 			$('#txw-nav').addClass('topfixed');
 			} else {
 			$('#txw-nav').removeClass('topfixed');
