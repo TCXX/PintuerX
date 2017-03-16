@@ -24,7 +24,7 @@ require_once View::getView('module');
 		<title><?php echo $site_title; ?></title>
 		
 		<link rel="stylesheet" href="http://www.pintuer.com/css/pintuer.css">
-		<link href="<?php echo TEMPLATE_URL; ?>style.css" rel="stylesheet">
+		<!--<link href="<?php echo TEMPLATE_URL; ?>style.css" rel="stylesheet">-->
 		<link href="<?php echo TEMPLATE_URL; ?>main.css" rel="stylesheet">
 		<link href="<?php echo BLOG_URL; ?>admin/editor/plugins/code/prettify.css" rel="stylesheet" type="text/css" />			
 		<link rel="EditURI" type="application/rsd+xml" title="RSD" href="<?php echo BLOG_URL; ?>xmlrpc.php?rsd" />

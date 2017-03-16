@@ -153,6 +153,231 @@ a:hover {
 	text-decoration: underline;
 }
 
+/*Pintuer-style.css*/
+
+@media (min-width:760px) {
+    .doc-nav {
+        text-align: right;
+    }
+
+    .doc-naver .doc-logo {
+        display: block;
+        margin: 0px;
+    }
+}
+
+.doc-sidebar {
+    display: block;
+    margin: 20px 0px 20px 50px;
+}
+
+.doc-right {
+    margin-top: 20px;
+}
+
+.doc-footer {
+    padding: 20px 0;
+    text-align: center;
+}
+
+.doc-h2 {
+    margin-bottom: 15px;
+    border-bottom: solid 1px #eee;
+    padding-bottom: 15px;
+    font-size: 28px;
+}
+
+.doc-h3 {
+    margin: 30px 0 10px 0;
+    font-size: 21px;
+}
+
+.doc-lead {
+    font-size: 18px;
+}
+
+.doc-title, .doc-code, .doc-demo, .doc-quote, .doc-quoteyellow, .doc-quotered,
+.doc-democode {
+    margin-bottom: 20px;
+}
+
+xmp, pre, plaintext {
+    display: block;
+    white-space: pre-wrap;
+    line-height: 18px;
+}
+
+.doc-grid {
+    padding: 10px;
+    display: block;
+}
+
+.doc-grid span {
+    border: solid 1px #ddd;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 2em;
+    text-align: center;
+    display: block;
+}
+
+.doc-bg-color p {
+    padding: 15px 20px;
+}
+
+.doc-border div {
+    margin-bottom: 15px;
+    padding: 20px;
+}
+
+#doc-input-focus {
+    border-color: #09c;
+}
+
+.doc-dialog {
+    padding: 20px;
+}
+
+/*首页*/
+.doc-banner {
+    padding: 70px 10%;
+    background;
+}
+
+.doc-banner h1 {
+    font-size: 36px;
+}
+
+.doc-banner h3 {
+    font-size: 22px;
+    padding: 0 10%;
+}
+
+.doc-banner .button-big {
+    padding: 14px 25px;
+    margin-bottom: 15px;
+    border: solid 2px;
+}
+
+.doc-banner .button-big:hover {
+    border: solid 2px;
+}
+
+.doc-input {
+    margin-bottom: 15px;
+}
+
+.doc-intro {
+    padding: 40px 0;
+}
+
+.doc-intro h1 {
+    margin-bottom: 15px;
+    font-size: 32px;
+}
+
+.doc-intro p {
+    font-size: 22px;
+}
+
+.bdshare_dialog_box {
+    box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+}
+
+.bdsharebuttonbox a:hover {
+    color: inherit;
+}
+
+.doc-backtop {
+    position: fixed;
+    right: 15px;
+    bottom: 10px;
+    color: #999;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 9;
+}
+
+.doc-backtop:hover {
+    color: #0a8;
+}
+
+.doc-icons {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.doc-icons li {
+    display: inline-block;
+    width: 118px;
+    padding: 5px;
+    height: 120px;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: top;
+    margin-bottom: 5px;
+    background-color: #f5f5f5;
+    transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1) 0s;
+}
+
+.doc-icons li span {
+    display: block;
+    font-size: 12px;
+}
+
+.doc-icons li span:first-child {
+    font-size: 36px;
+    padding: 10px 0;
+}
+
+.doc-icons li:hover {
+    background: #0a8;
+    color: #fff;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1) 0s;
+}
+
+.doc-drop-open .drop-menu {
+    display: block;
+}
+
+.doc-radius div {
+    width: 100px;
+    height: 100px;
+    padding: 40px 0;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+}
+
+.doc-spy-content {
+    height: 150px;
+    overflow: auto;
+}
+
+/*布局*/
+.doc-layout {
+    border: solid 1px #ddd;
+}
+
+.doc-layout-header {
+    padding: 20px auto;
+    text-align: center;
+    border-bottom: solid 1px #ddd;
+}
+
+/*轮播*/
+.doc-carousel {
+    height: 300px;
+    background: #f5f5f5 url(../images/128.png) center center no-repeat;
+    padding-top: 100px;
+    font-size: 18px;
+    text-align: center;
+    color: #aaa;
+    border: solid 1px #fff;
+}
 
 /*Pintuer*/
 
