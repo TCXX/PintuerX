@@ -60,17 +60,37 @@
 
 #txw-bg-title {
 	position: relative;
-	top: 40px;
+	height: 220px;
 }
 
 #txw-bg-title h1{
+	color: #fff;
 	position: relative;
-	left: 30px;
+	top: 50px;
+	left: 225px;
 }
 
 #txw-bg-title p {
+	color: #3b4066;
 	position: relative;
-	left: 60px;
+	top: 50px;
+	left: 200px;
+}
+
+#txw-container {
+	position: relative;
+}
+
+#txw-bg-img1 {
+    position:absolute;
+    top:0px;
+    left:0px;
+}
+
+#txw-bg-img2 {
+    position:absolute;
+    bottom:10px;
+    right:10px;
 }
 
 #txw-bg-main {
@@ -1195,5 +1215,6 @@ a img.aligncenter {
 	padding: 0 7px;
 	margin: 0 0 0 10px;
 }
+
 
 
