@@ -71,7 +71,7 @@ require_once View::getView('module');
 		</script>
 		<?php doAction('index_head'); ?>
 	</head>
-	<body>
+		<body>
 		<div class="doc-header">
 			<div class="hidden-s hidden-m hidden-b show-l">
 				<div class="box-shadow-small" id="txw-bg-small"></div>
@@ -85,23 +85,24 @@ require_once View::getView('module');
 			<div class="bg-main doc-intro show-s show-m show-b hidden-l" id="txw-bg-main">
 				<div class="container">
 					<div id="txw-container">
-					<div id="txw-bg-img1">
-						<img src="<?php echo TEMPLATE_URL; ?>images/QXin.png">
-					</div>
-					<div id="txw-bg-img2">
-						<img src="<?php echo TEMPLATE_URL; ?>images/QHeart.png">
-					</div>
-					<div id="txw-bg-title">
-						<h1><?php echo $blogname; ?></h1>
-						<p><?php echo $bloginfo; ?></p>
-					</div>
+						<div id="txw-bg-img1">
+							<img src="<?php echo TEMPLATE_URL; ?>images/QXin.png">
+						</div>
+						<div id="txw-bg-img2">
+							<img src="<?php echo TEMPLATE_URL; ?>images/QHeart.png">
+						</div>
+						<div id="txw-bg-title">
+							<h1><?php echo $blogname; ?></h1>
+							<p><?php echo $bloginfo; ?></p>
+						</div>
 					</div>
 				</div>
 			</div>
-				<div class="bg-inverse">
-					<ul class="fixable nav nav-navicon padding-small-top box-shadow-small nav-inline" id="txw-nav">
-			  		<?php blog_navi($blogname);?>
+			<div class="bg-inverse">
+				<ul class="fixable nav nav-navicon padding-small-top box-shadow-small nav-inline" id="txw-nav">
+			  	<?php blog_navi($blogname);?>
 				</ul>
 			</div>
 		</div>
+		
 		

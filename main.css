@@ -61,20 +61,21 @@
 #txw-bg-title {
 	position: relative;
 	height: 220px;
+	width: 500px;
 }
 
 #txw-bg-title h1{
 	color: #fff;
 	position: relative;
 	top: 50px;
-	left: 225px;
+	left: 200px;
 }
 
 #txw-bg-title p {
 	color: #3b4066;
 	position: relative;
 	top: 50px;
-	left: 200px;
+	left: 175px;
 }
 
 #txw-container {
