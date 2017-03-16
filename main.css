@@ -59,7 +59,8 @@
 }
 
 #txw-bg-main {
-	background: #58abd8;
+	/*background: #58abd8;*/
+	background: #13365e;
 }
 
 #txw-bg-small {
@@ -96,7 +97,7 @@
 	opacity: 0.8;
 	top: 0px;
 	border-top-width: 6px;
-	border-color: #02083a;
+	border-color: #08104f;
 	border-style: solid;
 	width: 100%;
 	z-index: 10;
@@ -391,10 +392,10 @@ body {
 	
 	/*Xin*/
 	background-color:#fffcc6;
-	background-image: radial-gradient(white 15%, transparent 10%),
-	radial-gradient(white 15%, transparent 10%);
-	background-size:60px 60px;
-	background-position: 0 0, 30px 30px;
+	background-image: radial-gradient(#f9e1a7 15%, transparent 10%),
+	radial-gradient(#f9e1a7 15%, transparent 10%);
+	background-size:40px 40px;
+	background-position: 0 0, 20px 20px;
 }
 
 #wrap {
@@ -454,8 +455,8 @@ img {
 }
 
 #nav .current {
-	background-color: #000000!important;
-	color: #000000!important;
+	background-color: #08104f;
+	color: #ffffff;
 }
 
 #nav .item:hover .sub-nav,
