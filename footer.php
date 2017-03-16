@@ -9,7 +9,7 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
 </div>
 </div>
 <!--end #content-->
-<div class="container doc-footer">Powered by Emlog | Theme By Pintuer | 版权所有 &copy; <a href="http://www.tcxx.info">甜欣屋</a> <?php echo $icp; ?> <?php echo $footer_info; ?><?php doAction('index_footer'); ?></div>
+<div class="container doc-footer">Powered by Emlog | Theme By Pintuer | <?php echo $lang['COPY_RIGHT']; ?> &copy; <a href="http://www.tcxx.info">甜欣屋</a> <?php echo $icp; ?> <?php echo $footer_info; ?><?php doAction('index_footer'); ?></div>
 <div class="doc-backtop win-backtop icon-arrow-circle-up"></div>
 <script type="text/javascript">
 	$('.doc-animation').click(function() {
