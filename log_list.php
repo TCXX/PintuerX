@@ -80,7 +80,7 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
 		<!--list.end-->
 		<div id="pagenavi" class="text-center">
 			<?php if(!$page_url): ?>
-			<?php echo $en['ONE_PAGE'];?>
+			<?php echo showText('ONE_PAGE');?>
 			<?php endif; ?>
 			<?php echo $page_url;?>
 		</div>
