@@ -44,8 +44,8 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
 		endforeach;
 		else:
 		?>
-		<h2>未找到</h2>
-		<p>抱歉，没有符合您查询条件的结果。</p>
+		<h2><?php echo showText('NOT_FOUND'); ?></h2>
+		<p><?php echo showText('NO_RESULTS'); ?></p>
 		<?php endif;?>
 		<div id="pagenavi" class="text-center">
 			<?php echo $page_url;?>

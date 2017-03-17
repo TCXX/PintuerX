@@ -56,7 +56,7 @@ function home_flash($title, $size){?>
 function widget_search($title){ ?>
 	<div id="logsearch" class="input-group padding-little-top" title="<?php echo $title; ?>">
 		<form name="keyform" method="get" action="<?php echo BLOG_URL; ?>index.php">
-			<input type="text" class="input border-main search float-left" name="keyword" size="30" placeholder="关键词" style="width:200px;" />
+			<input type="text" class="input border-main search float-left" name="keyword" size="30" placeholder="<?php echo showText('KEY'); ?>" style="width:200px;" />
 			<span class="addbtn"><button type="submit" class="button bg-main icon-search"></button></span>
 		</form>
 	</div>
@@ -231,7 +231,7 @@ function widget_twitter($title){
 		<div class="panel-body panel-body-bordered">
 			<ul>
 				<?php foreach($newtws_cache as $value): ?>
-				<?php $img = empty($value['img']) ? "" : '<a title="查看图片" class="t_img" href="'.BLOG_URL.str_replace('thum-', '', $value['img']).'" target="_blank">&nbsp;</a>';?>
+				<?php $img = empty($value['img']) ? "" : '<a title="view pic" class="t_img" href="'.BLOG_URL.str_replace('thum-', '', $value['img']).'" target="_blank">&nbsp;</a>';?>
 				<li><a class="cuttitle"><?php echo $value['t']; ?></a></li>
 				<?php endforeach; ?>
 			</ul>
@@ -365,7 +365,7 @@ function blog_sort($blogid){
 	<?php if(!empty($log_cache_sort[$blogid])){ ?>
     <a href="<?php echo Url::sort($log_cache_sort[$blogid]['id']); ?>"><?php echo $log_cache_sort[$blogid]['name']; ?></a>			
 	<?php } else { ?>
-	<span>无分类</span>
+	<span><?php echo showText('NO_SORT'); ?></span>
 <?php }}?>
 
 <?php
@@ -374,13 +374,13 @@ function blog_tag($blogid){
 	global $CACHE;
 	$log_cache_tags = $CACHE->readCache('logtags');
 	if (!empty($log_cache_tags[$blogid])){
-		$tag = '标签:';
+		$tag = showText('TAGS');
 		foreach ($log_cache_tags[$blogid] as $value){
 			$tag .= "	<a href=\"".Url::tag($value['tagurl'])."\">".$value['tagname'].'</a>';
 		}
 		echo $tag;
 	} else {
-		echo '无标签';
+		echo showText('NO_TAG');
 	}
 }
 ?>
@@ -416,7 +416,7 @@ function blog_comments($comments){
     extract($comments);
     if($commentStacks): ?>
     <a name="comments"></a>
-    <strong class="text-main comment-header">评论：</strong>
+    <strong class="text-main comment-header"><?php echo showText('COMMENT'); ?></strong>
 	<?php endif; ?>
 	<?php
 	$isGravatar = Option::get('isgravatar');
@@ -429,7 +429,7 @@ function blog_comments($comments){
 		<div class="comment-info">
 			<b><?php echo $comment['poster']; ?> </b><span class="comment-time"><?php echo $comment['date']; ?></span>
 			<div class="comment-content text-small padding-small-top height-small"><?php echo $comment['content']; ?></div>
-			<div class="comment-reply text-small padding-small-top height-small"><a class="tag bg-white" href="#comment-<?php echo $comment['cid']; ?>" onclick="commentReply(<?php echo $comment['cid']; ?>,this)">回复</a></div>
+			<div class="comment-reply text-small padding-small-top height-small"><a class="tag bg-white" href="#comment-<?php echo $comment['cid']; ?>" onclick="commentReply(<?php echo $comment['cid']; ?>,this)"><?php echo showText('REPLY'); ?></a></div>
 		</div>
 		<?php blog_comments_children($comments, $comment['children']); ?>
 	</div>
@@ -451,7 +451,7 @@ function blog_comments_children($comments, $children){
 		<div class="comment-info">
 			<b><?php echo $comment['poster']; ?> </b><span class="comment-time"><?php echo $comment['date']; ?></span>
 			<div class="comment-content text-small padding-small-top height-small"><?php echo $comment['content']; ?></div>
-			<?php if($comment['level'] < 3): ?><div class="comment-reply"><a class="tag bg-white" href="#comment-<?php echo $comment['cid']; ?>" onclick="commentReply(<?php echo $comment['cid']; ?>,this)">回复</a></div><?php endif; ?>
+			<?php if($comment['level'] < 3): ?><div class="comment-reply"><a class="tag bg-white" href="#comment-<?php echo $comment['cid']; ?>" onclick="commentReply(<?php echo $comment['cid']; ?>,this)"><?php echo showText('REPLY'); ?></a></div><?php endif; ?>
 		</div>
 		<?php blog_comments_children($comments, $comment['children']);?>
 	</div>
@@ -463,20 +463,20 @@ function blog_comments_post($logid,$ckname,$ckmail,$ckurl,$verifyCode,$allow_rem
 	if($allow_remark == 'y'): ?>
 	<div id="comment-place">
 	<div class="comment-post" id="comment-post">
-		<div class="cancel-reply tag bg-white" id="cancel-reply" style="display:none"><a href="javascript:void(0);" onclick="cancelReply()">取消回复</a></div>
-		<strong class="comment-header">发表评论：<a name="respond"></a></strong>
+		<div class="cancel-reply tag bg-white" id="cancel-reply" style="display:none"><a href="javascript:void(0);" onclick="cancelReply()"><?php echo showText('CANCEL_REPLY'); ?></a></div>
+		<strong class="comment-header"><?php echo showText('WRITE_COMMENT'); ?><a name="respond"></a></strong>
 		<form method="post" name="commentform" action="<?php echo BLOG_URL; ?>index.php?action=addcom" id="commentform">
 			<input type="hidden" name="gid" value="<?php echo $logid; ?>" />
 			<?php if(ROLE == ROLE_VISITOR): ?>
 			<div class="form-group" id="f_1447136101540">
 				<div class="field">
-					<input class="input" type="text" name="comname" maxlength="49" value="<?php echo $ckname; ?>" size="22" tabindex="1" data-validate="required:请填写昵称" placeholder="请填写昵称">
+					<input class="input" type="text" name="comname" maxlength="49" value="<?php echo $ckname; ?>" size="22" tabindex="1" data-validate="<?php echo showText('FILL_NICKNAME'); ?>" placeholder="<?php echo showText('FILL_NICKNAME'); ?>">
 				</div>
 			</div>
 			<?php endif; ?>
 			<div class="form-group" id="f_1447136101540">
 				<div class="field">
-					<textarea class="input" name="comment" id="comment" rows="2" tabindex="4" data-validate="required:请填写评论内容" placeholder="请填写评论内容"></textarea>
+					<textarea class="input" name="comment" id="comment" rows="2" tabindex="4" data-validate="<?php echo showText('FILL_COMMENT'); ?>" placeholder="<?php echo showText('FILL_COMMENT'); ?>"></textarea>
 				</div>
 			</div>
 			<div class="form-group" id="f_1447136116228">
@@ -484,7 +484,7 @@ function blog_comments_post($logid,$ckname,$ckmail,$ckurl,$verifyCode,$allow_rem
 					<?php echo $verifyCode; ?>
 				</p>
 				<br>
-				<input class="button bg-yellow button-block" type="submit" id="comment_submit" value="发表评论" tabindex="6" />
+				<input class="button bg-yellow button-block" type="submit" id="comment_submit" value="<?php echo showText('SUBMIT_COMMENT'); ?>" tabindex="6" />
 			</div>
 			<input type="hidden" name="pid" id="comment-pid" value="0" size="22" tabindex="1"/>
 		</form>
@@ -502,15 +502,68 @@ function blog_tool_ishome(){
     }
 }
 
-// For multi-lingual support
+/// For multi-lingual support
 function showText ($str) {
 	$lang = 'en';
 	
 	$en = array();
 	$cn = array();
 	
+	//footer
 	$en['COPY_RIGHT'] = 'All rights reserved';
 	$cn['COPY_RIGHT'] = '版权所有';
+	$en['TXW'] = 'Xins Sweet Home';
+	$cn['TXW'] = '甜欣屋';
+	
+	//t
+	$en['NOT_FOUND'] = 'No Results Found';
+	$cn['NOT_FOUND'] = '啥也没找到';
+	$en['NO_RESULTS'] = 'Oops, no results is found. ';
+	$cn['NO_RESULTS'] = '啥结果也没有喔。';
+	
+	//log_list
+	$en['VIEW_ARTICLE'] = 'View Article';
+	$cn['VIEW_ARTICLE'] = '查看文章';
+	$en['ARTICLE_LIST'] = 'Article List';
+	$cn['ARTICLE_LIST'] = '文章列表';
+	$en['COMMENT'] = 'Comments ';
+	$cn['COMMENT'] = '评论';
+	$en['VIEW'] = 'Views ';
+	$cn['VIEW'] = '浏览';
+	$en['ONE_PAGE'] = 'One page in total';
+	$cn['ONE_PAGE'] = '共一页';
+	
+	//module
+	$en['KEY'] = 'keyword';
+	$cn['KEY'] = '关键词';
+	$en['NO_SORT'] = 'Uncategorized';
+	$cn['NO_SORT'] = '未分类';
+	$en['TAGS'] = 'Tags: ';
+	$cn['TAGS'] = '标签：';
+	$en['NO_TAG'] = 'No tags';
+	$cn['NO_TAG'] = '无标签';
+	$en['REPLY'] = 'Reply';
+	$cn['REPLY'] = '回复';
+	$en['CANCEL_REPLY'] = 'Cancel reply';
+	$cn['CANCEL_REPLY'] = '取消回复';
+	$en['WRITE_COMMENT'] = 'Write a comment';
+	$cn['WRITE_COMMENT'] = '发表评论';
+	$en['FILL_NICKNAME'] = 'Please write your nickname';
+	$cn['FILL_NICKNAME'] = '请填写你的昵称';
+	$en['FILL_COMMENT'] = 'Please write your comment';
+	$cn['FILL_COMMENT'] = '请填写评论内容';
+	$en['SUBMIT_COMMENT'] = 'Submit comment';
+	$cn['SUBMIT_COMMENT'] = '提交评论';
+	
+	//404
+	$en['404'] = 'Page Not Found';
+	$cn['404'] = '页面找不到啦';
+	$en['BACK'] = 'Submit comment';
+	$cn['BACK'] = '返回';
+	
+	//side
+	$en['WORKS'] = 'Works';
+	$cn['WORKS'] = '作品展示';
 	
 	if ($lang == 'cn') {
 		echo $cn[$str];

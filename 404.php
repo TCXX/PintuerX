@@ -8,7 +8,7 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>错误提示-页面未找到</title>
+<title><?php echo showText('404'); ?></title>
 <style type="text/css">
 <!--
 body {
@@ -37,8 +37,8 @@ body {
 </head>
 <body>
 <div class="main">
-<p>抱歉，你所请求的页面不存在！</p>
-<p><a href="javascript:history.back(-1);">&laquo;点击返回</a></p>
+<p><?php echo showText('404'); ?></p>
+<p><a href="javascript:history.back(-1);">&laquo;<?php echo showText('BACK'); ?></a></p>
 </div>
 </body>
 </html>

@@ -25,11 +25,11 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
 				}elseif($keyword){
 					echo $keyword;
 				}elseif($logid){
-					echo '查看文章';
+					echo showText('VIEW_ARTICLE');
 				}elseif($tws){
 					echo $tws;
 				}else{
-					echo '文章列表';
+					echo showText('ARTICLE_LIST');
 				}
 			?>
 			</div>
@@ -65,7 +65,7 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
 					<?php echo gmdate('Y-n-j', $value['date']); ?> 
 						<?php editflg($value['logid'],$value['author']); ?>
 				</span>
-				<small class="article-info float-right text-small">评论(<?php echo $value['comnum']; ?>) | 浏览(<?php echo $value['views']; ?>)</small>
+				<small class="article-info float-right text-small"><?php echo showText('COMMENT'); ?>(<?php echo $value['comnum']; ?>) | <?php echo showText('VIEW'); ?>(<?php echo $value['views']; ?>)</small>
 			</div>
 			<br>
 			<hr class="article-hr">
@@ -73,14 +73,14 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
 		endforeach;
 		else:
 		?>
-		<h2>未找到</h2>
-		<p>抱歉，没有符合您查询条件的结果。</p>
+		<h2><?php echo $en['NOT_FOUND'];?></h2>
+		<p><?php echo $en['NO_RESULTS'];?></p>
 		<?php endif;?>
 		</div>
 		<!--list.end-->
 		<div id="pagenavi" class="text-center">
 			<?php if(!$page_url): ?>
-			共一页
+			<?php echo $en['ONE_PAGE'];?>
 			<?php endif; ?>
 			<?php echo $page_url;?>
 		</div>
