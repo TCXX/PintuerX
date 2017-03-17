@@ -20,7 +20,6 @@ require_once View::getView('module');
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<meta name="keywords" content="<?php echo $site_key; ?>" />
 		<meta name="description" content="<?php echo $site_description; ?>" />
-		<meta name="generator" content="pintuer" />
 		<title><?php echo $site_title; ?></title>
 		
 		<link rel="stylesheet" href="http://www.pintuer.com/css/pintuer.css">
@@ -51,18 +50,6 @@ require_once View::getView('module');
 		.input-group {border-collapse: separate;display: block;position: relative;}
 		.cuttitle{ display: block; width: 220px; height:24px; overflow:  hidden; white-space: nowrap; -o-text-overflow: ellipsis; text-overflow:  ellipsis; }
 		</style>
-		<script><?php
-			$language = 'cn';
-
-			switch ($language) {
-			case 'en':
-			$lang_file = 'lang.en.php';
-			break;
-			default:
-			$lang_file = 'lang.cn.php';
-			}
-			include_once TEMPLATE_URL.'lang/'.$lang_file;
-			?></script>
 		<script type="text/javascript">
 			$(window).scroll(function(){
 			if($(this).scrollTop()>220){
@@ -82,7 +69,6 @@ require_once View::getView('module');
 			});
 		</script>
 		<?php doAction('index_head'); ?>
-		
 	</head>
 		<body>
 		<div class="doc-header">

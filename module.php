@@ -501,7 +501,22 @@ function blog_tool_ishome(){
         return FALSE;
     }
 }
+
+// For multi-lingual support
+function showText ($str) {
+	$lang = 'en';
+	
+	$en = array();
+	$cn = array();
+	
+	$en['COPY_RIGHT'] = 'All rights reserved';
+	$cn['COPY_RIGHT'] = '版权所有';
+	
+	if ($lang == 'cn') {
+		echo $cn[$str];
+	} else {
+		echo $en[$str];
+	}
+}
+
 ?>
-
-
-
