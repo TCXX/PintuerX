@@ -472,6 +472,12 @@ function blog_comments_post($logid,$ckname,$ckmail,$ckurl,$verifyCode,$allow_rem
 				<div class="field">
 					<input class="input" type="text" name="comname" maxlength="49" value="<?php echo $ckname; ?>" size="22" tabindex="1" data-validate="<?php echo showText('FILL_NICKNAME'); ?>" placeholder="<?php echo showText('FILL_NICKNAME'); ?>">
 				</div>
+				<div class="field">
+					<input class="input" type="text" name="commail" maxlength="49" value="<?php echo $ckmail; ?>" size="22" tabindex="1" data-validate="<?php echo showText('FILL_EMAIL'); ?>" placeholder="<?php echo showText('FILL_EMAIL'); ?>">
+				</div>
+				<div class="field">
+					<input class="input" type="text" name="comurl" maxlength="49" value="<?php echo $ckurl; ?>" size="22" tabindex="1" data-validate="<?php echo showText('FILL_SITE'); ?>" placeholder="<?php echo showText('FILL_SITE'); ?>">
+				</div>
 			</div>
 			<?php endif; ?>
 			<div class="form-group" id="f_1447136101540">
@@ -550,6 +556,10 @@ function showText ($str) {
 	$cn['WRITE_COMMENT'] = '发表评论';
 	$en['FILL_NICKNAME'] = 'Please write your nickname';
 	$cn['FILL_NICKNAME'] = '请填写你的昵称';
+	$en['FILL_EMAIL'] = 'Please write your email address (optional)';
+	$cn['FILL_EMAIL'] = '请填写你的邮箱';
+	$en['FILL_SITE'] = 'Please write your website address (optional)';
+	$cn['FILL_SITE'] = '请填写你的网址';
 	$en['FILL_COMMENT'] = 'Please write your comment';
 	$cn['FILL_COMMENT'] = '请填写评论内容';
 	$en['SUBMIT_COMMENT'] = 'Submit comment';
