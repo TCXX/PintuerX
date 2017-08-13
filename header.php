@@ -3,8 +3,8 @@
 Template Name:拼图响应式前端框架模板
 Description:拼图模板，简洁优雅
 Version:1.1x
-Author:pintuer, TCXX
-Author Url:http://www.pintuer.com
+Author:pintuer, 甜菜欣欣
+Author Url:http://tcxx.info
 Sidebar Amount:1
 */
 if(!defined('EMLOG_ROOT')) {exit('error!');}
