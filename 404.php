@@ -9,31 +9,6 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><?php echo showText('404'); ?></title>
-<style type="text/css">
-<!--
-body {
-	background-color:#F7F7F7;
-	font-family: Arial;
-	font-size: 12px;
-	line-height:150%;
-}
-.main {
-	background-color:#FFFFFF;
-	font-size: 12px;
-	color: #666666;
-	width:650px;
-	margin:60px auto 0px;
-	border-radius: 10px;
-	padding:30px 10px;
-	list-style:none;
-	border:#DFDFDF 1px solid;
-}
-.main p {
-	line-height: 18px;
-	margin: 5px 20px;
-}
--->
-</style>
 </head>
 <body>
 <div class="main">
