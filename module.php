@@ -508,7 +508,7 @@ function blog_tool_ishome(){
     }
 }
 
-/// For multi-lingual support
+// For multi-lingual support. Change the value of $lang to indicate a preferred language.
 function showText ($str) {
 	$lang = 'en';
 	
